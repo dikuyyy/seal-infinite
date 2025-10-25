@@ -148,6 +148,27 @@
             width: 100%;
         }
 
+        .hero-5 {
+            position: relative;
+            min-height: 100vh;
+            background: url("{{ asset('images/background/hero-5.jpg') }}") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-5::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, transparent, #1a237e 80%);
+            z-index: 1;
+        }
+
+
+
         /* Achievement Card Styles */
         .achievement-card {
             background: linear-gradient(145deg, rgba(13, 71, 161, 0.3), rgba(74, 20, 140, 0.3));
@@ -1052,11 +1073,15 @@
             border-color: #2563eb;
         }
 
-        /* ========== CALENDAR & DISCORD SECTION ========== */
         .calendar-discord-section {
             position: relative;
             min-height: 100vh;
-            background: linear-gradient(180deg, #0158BC 0%, #000 20%, #000 80%, #1a237e 100%);
+            background: linear-gradient(180deg,
+                    #0158BC 0%,
+                    #001a4d 25%,
+                    #000 50%,
+                    #0b104a 80%,
+                    #1a237e 100%);
             padding: 6rem 0;
             overflow: hidden;
         }
@@ -1066,10 +1091,16 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 30%, rgba(74, 20, 140, 0.3), transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(13, 71, 161, 0.3), transparent 50%);
+                radial-gradient(ellipse 120% 80% at 20% 40%,
+                    /* sisi kiri halus */
+                    rgba(74, 20, 140, 0.25), transparent 60%),
+                radial-gradient(ellipse 120% 80% at 85% 60%,
+                    /* tambahan glow kanan */
+                    rgba(13, 71, 161, 0.35), transparent 60%);
+            mix-blend-mode: screen;
             pointer-events: none;
         }
+
 
         /* Calendar Container */
         .calendar-container {
@@ -1526,6 +1557,275 @@
                 border-radius: 8px;
             }
         }
+
+        .hero-5 {
+            position: relative;
+            min-height: 100vh;
+            background: url("{{ asset('images/background/hero-5.jpg') }}") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 6rem 0;
+        }
+
+        .hero-5::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, transparent, #1a237e 80%);
+            z-index: 1;
+        }
+
+        /* Registration Form Styles */
+        .register-card {
+            position: relative;
+            z-index: 2;
+            background: rgba(240, 240, 245, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 2.5rem 2.5rem 2rem;
+            width: 100%;
+            max-width: 820px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .6),
+                inset 0 1px 0 rgba(255, 255, 255, .8);
+        }
+
+        .register-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 1.5rem;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 0.05em;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            display: block;
+            color: #2d2d44;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: #fff;
+            color: #1a1a2e;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #4a148c;
+            box-shadow: 0 0 0 3px rgba(74, 20, 140, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: #9ca3af;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: start;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .form-checkbox input[type="checkbox"] {
+            margin-top: 0.25rem;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #4a148c;
+        }
+
+        .form-checkbox label {
+            color: #4b5563;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.9rem;
+            background: linear-gradient(135deg, #4a148c 0%, #1a237e 50%, #0d47a1 100%);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(74, 20, 140, .4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(74, 20, 140, .5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .register-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .register-footer a {
+            color: #4a148c;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .register-footer a:hover {
+            color: #1a237e;
+        }
+
+        /* Responsive for Registration Form */
+        @media (max-width: 991px) {
+            .hero-5 {
+                justify-content: center;
+            }
+
+            .register-card {
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .register-card {
+                padding: 2rem 1.5rem;
+                margin: 0 1rem;
+            }
+
+            .register-title {
+                font-size: 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .register-card {
+                padding: 1.75rem 1.25rem;
+            }
+
+            .register-title {
+                font-size: 1.3rem;
+            }
+
+            .form-input {
+                padding: 0.65rem 0.85rem;
+                font-size: 0.9rem;
+            }
+
+            .submit-btn {
+                padding: 0.8rem;
+                font-size: 1rem;
+            }
+        }
+
+        .logo-container-hero5 {
+            position: absolute;
+            top: 8rem;
+            left: 8%;
+            z-index: 3;
+            animation: floatLogo 3s ease-in-out infinite;
+        }
+
+        .hero5-logo {
+            height: auto;
+            filter: drop-shadow(0 12px 40px rgba(0, 0, 0, .8));
+            transition: all 0.4s ease;
+        }
+
+        .hero5-logo:hover {
+            transform: scale(1.08) rotate(-2deg);
+            filter: drop-shadow(0 16px 50px rgba(74, 20, 140, 1));
+        }
+
+        @keyframes floatLogo {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .logo-container-hero5 {
+                left: 5%;
+                top: 6rem;
+            }
+
+            .hero5-logo {
+                width: 240px;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .logo-container-hero5 {
+                position: relative;
+                left: 0;
+                top: 0;
+                text-align: center;
+                margin-bottom: 3rem;
+            }
+
+            .hero5-logo {
+                width: 220px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero5-logo {
+                width: 180px;
+            }
+
+            .logo-container-hero5 {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero5-logo {
+                width: 150px;
+            }
+        }
     </style>
 @endpush
 
@@ -1962,6 +2262,65 @@
                                 <span class="discord-stat-label">Online</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hero-5">
+        <!-- Logo Container - Tambahkan di sini -->
+        <div class="logo-container-hero5">
+            <img src="{{ asset('images/seal-infinite.png') }}" alt="Seal Infinite Logo" class="hero5-logo">
+        </div>
+
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-lg-5 col-md-7">
+                    <div class="register-card">
+                        <h2 class="register-title">Daftar Sekarang</h2>
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label">Username</label>
+                                <input type="text" class="form-input" placeholder="username Anda">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Password</label>
+                                    <input type="password" class="form-input" placeholder="*************">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Confirm Password</label>
+                                    <input type="password" class="form-input" placeholder="*************">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" placeholder="emailanda@gmail.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Pin Code</label>
+                                <input type="text" class="form-input" placeholder="******">
+                            </div>
+
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="agree">
+                                <label for="agree">
+                                    Saya setuju bahwa data diri yang terdaftar akan digunakan untuk melanjutkan registrasi
+                                </label>
+                            </div>
+
+                            <button type="submit" class="submit-btn">
+                                Submit
+                                <i class="bi bi-send-fill"></i>
+                            </button>
+
+                            <div class="register-footer">
+                                Sudah punya akun? <a href="#">Login disini</a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

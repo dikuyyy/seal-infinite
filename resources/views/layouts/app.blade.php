@@ -117,9 +117,17 @@
         @yield('content')
     </main>
 
-    <footer class="py-4 text-center">
-        <div class="container small">© {{ date('Y') }} Seal Infinite. All rights reserved.</div>
+    <footer class=" px-5 bg-white">
+        <div class="d-flex justify-content-between align-items-center mx-auto">
+            <div class="text-dark" style="font-family: sans-serif">
+                © {{ date('Y') }} Seal Infinite. All rights reserved.
+            </div>
+            <div>
+                <img src="{{ asset('images/seal-infinite.png') }}" alt="Seal Infinite" style="height: 100px;">
+            </div>
+        </div>
     </footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     @stack('scripts')
