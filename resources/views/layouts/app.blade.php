@@ -104,12 +104,12 @@
                     </li>
 
                     <li class="nav-item ms-lg-2">
-                        <a href="#" class="btn btn-light btn-pill fw-semibold">
-                            <i class="bi bi-box-arrow-in-right me-1"></i> Login/Register
-                        </a>
-                    </li>
-                </ul>
-            </div>
+                        <a href="{{ url('/login') }}"" class="btn btn-light btn-pill fw-semibold">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Login/Register
+            </a>
+            </li>
+            </ul>
+        </div>
         </div>
     </nav>
 
