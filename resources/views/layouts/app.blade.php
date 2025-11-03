@@ -19,7 +19,7 @@
     <style>
         html,
         body {
-            font-family: 'Playfair Display', sans-serif;
+            font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
             background: #0a0f1a;
         }
@@ -57,7 +57,6 @@
 
 <body>
 
-    <!-- NAVBAR (mirip screenshot) -->
     <nav class="navbar navbar-expand-lg position-absolute top-0 start-0 end-0"
         style="font-family: 'Palanquin', sans-serif; z-index: 1030;">
         <div class="container">

@@ -191,7 +191,7 @@
                             </button>
 
                             <div class="register-footer">
-                                Tidak punya akun? <a href="#">Daftar disini</a>
+                                Tidak punya akun? <a href="{{ route('registration') }}">Daftar disini</a>
                             </div>
                         </form>
                     </div>
