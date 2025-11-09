@@ -17,3 +17,15 @@ Route::get('/registration', function () {
 Route::get('/account-manager', function () {
     return view('pages.account-manager.index');
 })->name('account-manager');
+
+Route::get('/shop', function () {
+    return view('pages.shop.index');
+})->name('shop');
+
+Route::get('/donate', function () {
+    return view('pages.donate.index');
+})->name('donate');
+
+Route::get('/download', function () {
+    return view('pages.download.index');
+})->name('download');

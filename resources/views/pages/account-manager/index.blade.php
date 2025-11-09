@@ -164,7 +164,7 @@
                 <div class="account-title">Account Manager</div>
                 <div class="account-row">
                     <div class="account-menu">
-                        <button class="account-menu-btn active" data-tab="panel">Panel Member</button>
+                        <button class="account-menu-btn active" data-tab="panel">Member Panel</button>
                         <button class="account-menu-btn" data-tab="game">Game Manage</button>
                         <button class="account-menu-btn" data-tab="password">Change Password</button>
                     </div>
@@ -223,6 +223,26 @@
                                     <a href="#"
                                         style="color: #3b82f6; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: all 0.3s;">Clear
                                         Cash Inventory Slot 1-8</a>
+                                </div>
+
+                                <!-- Teleport Section -->
+                                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #d1d5db;">
+                                    <h6 style="margin-bottom: 1rem; color: #1a1a2e; font-weight: 700; font-size: 0.95rem;">
+                                        Teleport</h6>
+                                    <div style="margin-bottom: 1rem;">
+                                        <select
+                                            style="width: 100%; padding: 0.7rem; border-radius: 8px; border: 1px solid #d1d5db; background: white; cursor: pointer; font-size: 0.95rem;">
+                                            <option>Select a Map</option>
+                                            <option>Map 1</option>
+                                            <option>Map 2</option>
+                                            <option>Map 3</option>
+                                        </select>
+                                    </div>
+                                    <button
+                                        style="padding: 0.7rem 2rem; background: #00bcd4; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; float: right; transition: all 0.3s;">
+                                        Teleport
+                                    </button>
+                                    <div style="clear: both;"></div>
                                 </div>
                             </div>
 
@@ -434,26 +454,6 @@
                                             Not Eligible
                                         </button>
                                     </div>
-                                </div>
-
-                                <!-- Teleport Section -->
-                                <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #d1d5db;">
-                                    <h6 style="margin-bottom: 1rem; color: #1a1a2e; font-weight: 700; font-size: 0.95rem;">
-                                        Teleport</h6>
-                                    <div style="margin-bottom: 1rem;">
-                                        <select
-                                            style="width: 100%; padding: 0.7rem; border-radius: 8px; border: 1px solid #d1d5db; background: white; cursor: pointer; font-size: 0.95rem;">
-                                            <option>Select a Map</option>
-                                            <option>Map 1</option>
-                                            <option>Map 2</option>
-                                            <option>Map 3</option>
-                                        </select>
-                                    </div>
-                                    <button
-                                        style="padding: 0.7rem 2rem; background: #00bcd4; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; float: right; transition: all 0.3s;">
-                                        Teleport
-                                    </button>
-                                    <div style="clear: both;"></div>
                                 </div>
                             </div>
 

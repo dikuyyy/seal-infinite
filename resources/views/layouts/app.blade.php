@@ -61,7 +61,7 @@
         style="font-family: 'Palanquin', sans-serif; z-index: 1030;">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url('/') }}">
-                <img src="{{ asset('images/logo.png') }}" alt="Seal Infinite" height="71" ">
+                <img src="{{ asset('images/logo.png') }}" alt="Seal Infinite" height="90" ">
             </a>
 
             <button class="navbar-toggler text-bg-light" type="button" data-bs-toggle="collapse"
@@ -72,9 +72,9 @@
             <div id="topNav" class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-download me-1"></i> Download Seal Online</a>
+                        <a class="nav-link" href="{{ url('/download') }}"><i class="bi bi-download me-1"></i> Download Seal Online</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-bag me-1"></i> Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/shop') }}"><i class="bi bi-bag me-1"></i> Shop</a></li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
@@ -85,7 +85,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-heart-fill me-1"></i>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('/donate') }}"><i class="bi bi-heart-fill me-1"></i>
                             Donation</a></li>
 
                     <li class="nav-item dropdown">
