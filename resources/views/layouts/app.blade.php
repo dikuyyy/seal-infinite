@@ -61,7 +61,7 @@
         style="font-family: 'Palanquin', sans-serif; z-index: 1030;">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url('/') }}">
-                <img src="{{ asset('images/logo.png') }}" alt="Seal Infinite" height="90" ">
+                <img src="{{ asset('images/seal-infinite.png') }}" alt="Seal Infinite" height="90" ">
             </a>
 
             <button class="navbar-toggler text-bg-light" type="button" data-bs-toggle="collapse"
