@@ -99,6 +99,70 @@
             color: #ffd86b;
         }
 
+        /* Account Dropdown Styles */
+        .account-dropdown {
+            border-radius: 1rem !important;
+            overflow: hidden;
+            animation: dropdownSlide 0.3s ease-out;
+            margin-top: 0.5rem !important;
+        }
+
+        @keyframes dropdownSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .account-dropdown .dropdown-header {
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .account-dropdown .info-item {
+            transition: transform 0.2s ease;
+        }
+
+        .account-dropdown .info-item:hover {
+            transform: translateX(3px);
+        }
+
+        .account-dropdown .btn {
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .account-dropdown .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .account-dropdown .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+        }
+
+        .account-dropdown .btn-outline-danger:hover {
+            background: #dc3545;
+            color: white;
+        }
+
+        .text-purple {
+            color: #764ba2;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 575.98px) {
+            .account-dropdown {
+                min-width: 280px !important;
+                margin-right: 1rem;
+            }
+        }
+
         /* Responsive navbar */
         @media (max-width: 991.98px) {
             .navbar-toggler {
@@ -179,10 +243,110 @@
                         <span class="nav-link"><i class="bi bi-gift"></i></span>
                     </li>
 
-                    <li class="nav-item ms-lg-2">
-                        <a href="{{ url('/login') }}" class="btn btn-light btn-pill fw-semibold">
-                            <i class="bi bi-box-arrow-in-right me-1"></i> Login/Register
+                    <li class="nav-item ms-lg-2 dropdown">
+                        {{-- state button ketika user login/logout --}}
+                        {{-- @auth --}}
+                        <a href="#" class="btn btn-light btn-pill fw-semibold dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="false" id="userDropdown">
+                            <i class="bi bi-person-circle me-1"></i> {{ Auth::user()->name ?? 'gm02' }}
                         </a>
+                        <div class="dropdown-menu dropdown-menu-end account-dropdown shadow-lg border-0 p-0"
+                            style="min-width: 320px;">
+                            <!-- Header -->
+                            <div class="dropdown-header bg-gradient p-3"
+                                style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                <div class="d-flex align-items-center">
+                                    <div class="avatar-circle me-3">
+                                        <i class="bi bi-person-circle text-black" style="font-size: 2.5rem;"></i>
+                                    </div>
+                                    <div class="text-black">
+                                        <h6 class="mb-0 fw-bold">{{ Auth::user()->name ?? 'gm02' }}</h6>
+                                        <small
+                                            class="opacity-75">{{ Auth::user()->email ?? 'admin@sealinfinite.com' }}</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Account Info Section -->
+                            <div class="p-3">
+                                <div class="text-muted small fw-semibold mb-2 text-uppercase">
+                                    <i class="bi bi-info-circle me-1"></i> Account Info
+                                </div>
+
+                                <div class="info-grid">
+                                    <div class="info-item">
+                                        <div class="d-flex justify-content-between align-items-center mb-2 p-2 rounded"
+                                            style="background: #f8f9fa;">
+                                            <span class="text-muted small">Status</span>
+                                            <span class="badge bg-success rounded-pill px-3">Active</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-item">
+                                        <div class="d-flex justify-content-between align-items-center mb-2 p-2 rounded"
+                                            style="background: #fff8e1;">
+                                            <span class="text-muted small d-flex align-items-center">
+                                                <i class="bi bi-coin text-warning me-1"></i> Cash Coin
+                                            </span>
+                                            <span class="fw-bold text-dark">1,250</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-item">
+                                        <div class="d-flex justify-content-between align-items-center mb-2 p-2 rounded"
+                                            style="background: #e3f2fd;">
+                                            <span class="text-muted small d-flex align-items-center">
+                                                <i class="bi bi-stars text-primary me-1"></i> AFK Point
+                                            </span>
+                                            <span class="fw-bold text-dark">450</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-item">
+                                        <div class="d-flex justify-content-between align-items-center mb-2 p-2 rounded"
+                                            style="background: #f3e5f5;">
+                                            <span class="text-muted small d-flex align-items-center">
+                                                <i class="bi bi-clock-history text-purple me-1"></i> Last Login
+                                            </span>
+                                            <span
+                                                class="fw-semibold text-dark small">{{ now()->format('d M, H:i') }}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="info-item">
+                                        <div class="d-flex justify-content-between align-items-center mb-2 p-2 rounded"
+                                            style="background: #e8f5e9;">
+                                            <span class="text-muted small d-flex align-items-center">
+                                                <i class="bi bi-graph-up text-success me-1"></i> Total Login
+                                            </span>
+                                            <span class="fw-bold text-dark">127x</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="my-0">
+
+                            <!-- Action Buttons -->
+                            <div class="p-3">
+                                <a href="{{ url('/account-manager') }}"
+                                    class="btn btn-primary w-100 mb-2 d-flex align-items-center justify-content-center rounded-pill">
+                                    <i class="bi bi-gear me-2"></i> Manage Account
+                                </a>
+                                <form action="{{ url('/logout') }}" method="POST" class="d-inline w-100">
+                                    @csrf
+                                    <button type="submit"
+                                        class="btn btn-outline-danger w-100 d-flex align-items-center justify-content-center rounded-pill">
+                                        <i class="bi bi-box-arrow-right me-2"></i> Logout
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        {{-- @else
+                            <a href="{{ url('/login') }}" class="btn btn-light btn-pill fw-semibold">
+                                <i class="bi bi-box-arrow-in-right me-1"></i> Login/Register
+                            </a>
+                        @endauth --}}
                     </li>
                 </ul>
             </div>
@@ -237,8 +401,18 @@
                 </li>
 
                 <li class="nav-item mt-3">
-                    <a href="{{ url('/login') }}" class="btn btn-light w-100 btn-pill fw-semibold">
-                        <i class="bi bi-box-arrow-in-right me-2"></i> Login/Register
+                    {{-- state button ketika user login/logout --}}
+                    {{-- @auth
+                        <a href="{{ url('/profile') }}" class="btn btn-light w-100 btn-pill fw-semibold">
+                            <i class="bi bi-person-circle me-2"></i> {{ Auth::user()->name }}
+                        </a>
+                    @else
+                        <a href="{{ url('/login') }}" class="btn btn-light w-100 btn-pill fw-semibold">
+                            <i class="bi bi-box-arrow-in-right me-2"></i> Login/Register
+                        </a>
+                    @endauth --}}
+                    <a href="{{ url('/profile') }}" class="btn btn-light w-100 btn-pill fw-semibold">
+                        <i class="bi bi-person-circle me-2"></i> gm02
                     </a>
                 </li>
             </ul>
