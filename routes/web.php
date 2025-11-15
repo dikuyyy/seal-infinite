@@ -33,3 +33,7 @@ Route::get('/download', function () {
 Route::get('/rankings', function () {
     return view('pages.rank.index');
 })->name('rankings');
+
+Route::get('/events/{event}', function ($event) {
+    return view('pages.event-detail.index', ['event' => $event]);
+})->name('events');

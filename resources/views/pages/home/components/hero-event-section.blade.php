@@ -33,8 +33,8 @@
                                     <div class="event-meta mb-3 mb-sm-0">Minimal Level 271</div>
                                 </div>
                                 <div class="d-flex">
-                                    <a href="#" class="event-view ms-auto">View Detail <i
-                                            class="bi bi-chevron-right"></i></a>
+                                    <a href="{{ route('events', 'guild-war-hall-season-2') }}"
+                                        class="event-view ms-auto">View Detail <i class="bi bi-chevron-right"></i></a>
                                 </div>
                             </div>
                         </div>
