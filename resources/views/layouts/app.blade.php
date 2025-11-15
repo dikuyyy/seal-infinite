@@ -217,12 +217,7 @@
                             Shop</a></li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"><i
-                                class="bi bi-trophy me-1"></i> Rank</a>
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#">Top Player</a></li>
-                            <li><a class="dropdown-item" href="#">Guild Rank</a></li>
-                        </ul>
+                        <a class="nav-link" href="{{ url('/rankings') }}"><i class="bi bi-trophy me-1"></i> Rank</a>
                     </li>
 
                     <li class="nav-item"><a class="nav-link" href="{{ url('/donate') }}"><i
@@ -375,13 +370,9 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                    <a class="nav-link" href="{{ url('/rankings') }}">
                         <i class="bi bi-trophy me-2"></i> Rank
                     </a>
-                    <ul class="dropdown-menu w-100">
-                        <li><a class="dropdown-item" href="#">Top Player</a></li>
-                        <li><a class="dropdown-item" href="#">Guild Rank</a></li>
-                    </ul>
                 </li>
 
                 <li class="nav-item">

@@ -29,3 +29,7 @@ Route::get('/donate', function () {
 Route::get('/download', function () {
     return view('pages.download.index');
 })->name('download');
+
+Route::get('/rankings', function () {
+    return view('pages.rank.index');
+})->name('rankings');
