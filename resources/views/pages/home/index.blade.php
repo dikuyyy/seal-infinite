@@ -10,7 +10,7 @@
     @include('pages.home.components.hero-event-section')
     @include('pages.home.components.library-section')
     @include('pages.home.components.stats-section')
-    @include('pages.home.components.rank-section')
+    {{-- @include('pages.home.components.rank-section') --}}
     @include('pages.home.components.achievement-section')
     @include('pages.home.components.calendar-discord-section')
     @include('pages.home.components.register-section')
