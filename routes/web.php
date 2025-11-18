@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,9 +31,7 @@ Route::get('/download', function () {
     return view('pages.download.index');
 })->name('download');
 
-Route::get('/rankings', function () {
-    return view('pages.rank.index');
-})->name('rankings');
+Route::get('/rankings', [App\Http\Controllers\RankController::class, 'index'])->name('rank.index');
 
 Route::get('/events/{event}', function ($event) {
     return view('pages.event-detail.index', ['event' => $event]);

@@ -4,200 +4,157 @@
 
 @push('styles')
     <style>
-        /* ========== RANK SECTION ========== */
+        .rank-section {
+            position: relative;
+            min-height: 100vh;
+            padding: 6rem 0 4rem;
+            background: url('/images/background/hero-3.png') center/cover no-repeat;
+        }
+
+        .rank-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+            pointer-events: none;
+        }
+
+        .rank-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent, #000);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .rank-container {
+            position: relative;
+            z-index: 2;
+        }
+
         .rank-title {
             font-size: 3.5rem;
-            font-weight: bold;
+            font-weight: 800;
             color: #fff;
             letter-spacing: 0.1em;
             margin-bottom: 2rem;
             text-align: center;
-            text-shadow: 0 0 20px rgba(30, 58, 138, 0.8);
+            text-shadow: 0 0 30px rgba(37, 99, 235, 0.8);
+            font-family: 'Orbitron', sans-serif;
         }
 
-        /* Tab Navigation */
+        /* Tabs */
         .rank-tabs {
             display: flex;
-            gap: 0;
-            margin-bottom: 2.5rem;
-            border: 2px solid #1e3a8a;
-            border-radius: 12px;
-            overflow: hidden;
-            width: 100%;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .rank-tab-btn {
-            background: rgba(5, 10, 25, 0.6);
-            border: none;
+            background: rgba(5, 10, 25, 0.8);
+            border: 2px solid #1e3a8a;
             color: #93c5fd;
-            padding: 1rem 1.5rem;
+            padding: 0.75rem 1.5rem;
             font-weight: 600;
             font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            border-right: 1px solid #1e3a8a;
-            flex: 1;
-        }
-
-        .rank-tab-btn:last-child {
-            border-right: none;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
         }
 
         .rank-tab-btn:hover {
-            background: rgba(30, 58, 138, 0.4);
+            background: rgba(30, 58, 138, 0.6);
             color: #fff;
+            transform: translateY(-2px);
+            border-color: #2563eb;
         }
 
         .rank-tab-btn.active {
             background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
             color: #fff;
-            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-color: #3b82f6;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.5);
         }
 
-        /* Table Container */
-        .rank-table-container {
-            background: rgba(5, 10, 25, 0.9);
+        .rank-table-wrapper {
             border: 2px solid #1e3a8a;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(16px);
         }
 
-        /* Table Header */
-        .rank-table-header {
-            display: grid;
-            grid-template-columns: 80px 1.5fr 1.5fr 1.5fr 140px;
+        .rank-table {
+            margin-bottom: 0;
+        }
+
+        .rank-table thead th {
             background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
-            border-bottom: 3px solid #2563eb;
-        }
-
-        .rank-th {
             color: #fbbf24;
-            padding: 1.2rem 1rem;
             font-weight: 700;
             font-size: 0.95rem;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-        }
-
-        .rank-th.rank-col-icon {
-            padding: 0;
-        }
-
-        .rank-th.rank-col-num,
-        .rank-th.rank-col-kill {
+            border: none;
+            padding: 1.2rem 1rem;
             text-align: center;
+            border-bottom: 3px solid #2563eb;
         }
 
-        /* Data Row */
-        .rank-row-data {
-            display: grid;
-            grid-template-columns: 80px 1.5fr 1.5fr 1.5fr 140px;
-            align-items: center;
-            border-bottom: 1px solid rgba(30, 58, 138, 0.4);
+        .rank-table tbody tr {
+            border-bottom: 1px solid rgba(30, 58, 138, 0.3);
             transition: all 0.3s ease;
         }
 
-        .rank-row-data:last-child {
-            border-bottom: none;
-        }
-
-        .rank-row-data:hover {
+        .rank-table tbody tr:hover {
             background: rgba(30, 58, 138, 0.2);
             transform: translateX(5px);
         }
 
-        /* Class Cell (Icon + Name) */
-        .rank-class-cell {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            padding: 1.5rem 1rem;
-            background: linear-gradient(135deg,
-                    rgba(5, 10, 20, 0.8) 0%,
-                    rgba(15, 20, 40, 0.8) 100%);
-            border-right: 2px solid #1e3a8a;
-            position: relative;
-        }
-
-        .rank-class-cell::after {
-            content: "";
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 2px;
-            height: 70%;
-            background: linear-gradient(to bottom, transparent, #2563eb, transparent);
-        }
-
-        .rank-class-icon {
-            width: 55px;
-            height: 55px;
-            object-fit: contain;
-            filter: drop-shadow(0 0 15px rgba(37, 99, 235, 0.6));
-            transition: all 0.3s ease;
-        }
-
-        .rank-data-row:hover .rank-class-icon {
-            transform: scale(1.1);
-            filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8));
-        }
-
-        .rank-class-name {
-            color: #93c5fd;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 0.1em;
-            text-align: center;
-            text-shadow: 0 0 10px rgba(30, 58, 138, 0.5);
-        }
-
-        /* Row Data */
-        .rank-row-data {
-            display: grid;
-            grid-template-columns: 80px 1.5fr 1.5fr 1.5fr 140px;
-            align-items: center;
-            border-bottom: 1px solid rgba(30, 58, 138, 0.2);
-            transition: all 0.2s ease;
-        }
-
-        .rank-row-data:hover {
-            background: rgba(37, 99, 235, 0.1);
-        }
-
-        .rank-rows-wrapper .rank-row-data:last-child {
+        .rank-table tbody tr:last-child {
             border-bottom: none;
         }
 
-        .rank-td {
-            color: #e5e7eb;
-            padding: 1rem 1rem;
+        .rank-table tbody td {
+            background-color: color-mix(in oklab, #FFF
+                    /* #000 = #000000 */
+                    70%, transparent);
+            color: #000;
+            padding: 1rem;
             font-size: 0.95rem;
             font-weight: 500;
+            vertical-align: middle;
+            border: none;
+            text-align: center;
         }
 
-        /* Column Alignments */
         .rank-col-num {
-            text-align: center;
             font-weight: 700;
             color: #fbbf24;
             font-size: 1.1rem;
+            width: 80px;
         }
 
         .rank-col-name {
             font-weight: 600;
             color: #93c5fd;
+            text-align: left;
         }
 
         .rank-col-job {
             color: #cbd5e1;
+        }
+
+        .rank-col-level {
+            color: #10b981;
+            font-weight: 700;
         }
 
         .rank-col-guild {
@@ -206,157 +163,216 @@
         }
 
         .rank-col-kill {
-            text-align: center;
             font-weight: 700;
             color: #ef4444;
             font-size: 1.05rem;
         }
 
-        /* Multi Row Container */
-        .rank-multi-row {
-            grid-template-rows: auto;
+        .rank-col-fame {
+            font-weight: 700;
+            color: #f59e0b;
         }
 
-        .rank-rows-wrapper {
-            display: flex;
-            flex-direction: column;
+        .rank-col-power {
+            font-weight: 700;
+            color: #8b5cf6;
         }
 
-        /* See More Button */
-        .rank-see-more {
-            background: linear-gradient(135deg,
-                    rgba(30, 58, 138, 0.6) 0%,
-                    rgba(37, 99, 235, 0.6) 100%);
-            border: 2px solid #1e3a8a;
+        .rank-col-cegel {
+            font-weight: 700;
+            color: #fbbf24;
+        }
+
+        .rank-col-status {
+            color: #10b981;
+        }
+
+        .rank-col-couple {
+            color: #ec4899;
+            font-style: italic;
+        }
+
+        /* Badge for Top 3 */
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .rank-badge-1 {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: #000;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.6);
+        }
+
+        .rank-badge-2 {
+            background: linear-gradient(135deg, #94a3b8, #64748b);
             color: #fff;
-            padding: 0.75rem 3rem;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+            box-shadow: 0 0 20px rgba(148, 163, 184, 0.6);
         }
 
-        .rank-see-more:hover {
-            background: linear-gradient(135deg,
-                    rgba(37, 99, 235, 0.8) 0%,
-                    rgba(59, 130, 246, 0.8) 100%);
+        .rank-badge-3 {
+            background: linear-gradient(135deg, #cd7f32, #a0522d);
+            color: #fff;
+            box-shadow: 0 0 20px rgba(205, 127, 50, 0.6);
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-online {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid #10b981;
+        }
+
+        .status-offline {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
+        /* Pagination */
+        .rank-pagination {
+            margin-top: 2rem;
+        }
+
+        .rank-pagination .pagination {
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .rank-pagination .page-link {
+            background: rgba(5, 10, 25, 0.8);
+            border: 2px solid #1e3a8a;
+            color: #93c5fd;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0;
+        }
+
+        .rank-pagination .page-link:hover {
+            background: rgba(30, 58, 138, 0.6);
+            color: #fff;
             border-color: #2563eb;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5);
         }
 
-        /* Responsive Design */
-        @media (max-width: 1199.98px) {
-
-            .rank-table-header,
-            .rank-row-data {
-                grid-template-columns: 70px 1fr 1.2fr 1.2fr 120px;
-            }
+        .rank-pagination .page-item.active .page-link {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+            border-color: #3b82f6;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.5);
         }
 
-        @media (max-width: 991.98px) {
+        .rank-pagination .page-item.disabled .page-link {
+            background: rgba(5, 10, 25, 0.5);
+            border-color: rgba(30, 58, 138, 0.3);
+            color: rgba(147, 197, 253, 0.4);
+        }
+
+        /* Empty State */
+        .rank-empty {
+            text-align: center;
+            padding: 3rem 1rem;
+            color: #94a3b8;
+        }
+
+        .rank-empty i {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .rank-empty p {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
             .rank-title {
                 font-size: 2.5rem;
             }
 
-            .rank-tabs {
-                flex-wrap: wrap;
-            }
-
             .rank-tab-btn {
-                padding: 0.8rem 1rem;
+                padding: 0.6rem 1rem;
                 font-size: 0.85rem;
-                flex: 1 1 auto;
-                min-width: 100px;
             }
 
-            .rank-table-header,
-            .rank-row-data {
-                grid-template-columns: 60px 1fr 1fr 1fr 100px;
-            }
-
-            .rank-th,
-            .rank-td {
+            .rank-table thead th,
+            .rank-table tbody td {
                 padding: 0.8rem 0.6rem;
                 font-size: 0.85rem;
             }
         }
 
-        @media (max-width: 767.98px) {
+        @media (max-width: 767px) {
+            .rank-section {
+                padding: 4rem 0 3rem;
+            }
+
             .rank-title {
                 font-size: 2rem;
                 margin-bottom: 1.5rem;
             }
 
-            .rank-tabs {
-                gap: 0.5rem;
-                border: none;
-                background: none;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
             .rank-tab-btn {
-                padding: 0.6rem 1rem;
+                padding: 0.5rem 0.8rem;
                 font-size: 0.8rem;
-                border-radius: 8px;
-                border: 1px solid #1e3a8a;
-                min-width: auto;
-                flex: 0 1 auto;
             }
 
-            .rank-table-container {
+            .rank-table-wrapper {
                 border-radius: 12px;
+                overflow-x: auto;
             }
 
-            .rank-table-header {
-                display: none;
+            .rank-table {
+                min-width: 600px;
             }
 
-            .rank-row-data {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-                padding: 1rem;
-                border: 1px solid #1e3a8a;
-                border-radius: 12px;
-                margin-bottom: 0.75rem;
+            .rank-table thead th,
+            .rank-table tbody td {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.8rem;
             }
 
-            .rank-td {
-                padding: 0.5rem 0;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+            .rank-col-num {
+                width: 60px;
             }
 
-            .rank-td::before {
-                content: attr(data-label);
-                font-weight: 700;
-                color: #fbbf24;
-                text-transform: uppercase;
-                font-size: 0.75rem;
-            }
-
-            .rank-see-more {
-                width: 100%;
-                padding: 1rem;
-                margin-top: 1rem;
+            .rank-badge {
+                width: 28px;
+                height: 28px;
+                font-size: 0.8rem;
             }
         }
 
-        @media (max-width: 575.98px) {
+        @media (max-width: 575px) {
             .rank-title {
                 font-size: 1.5rem;
             }
 
             .rank-tab-btn {
-                padding: 0.5rem 0.8rem;
+                padding: 0.4rem 0.6rem;
                 font-size: 0.75rem;
             }
 
-            .rank-td {
+            .rank-pagination .page-link {
+                padding: 0.4rem 0.8rem;
                 font-size: 0.85rem;
             }
         }
@@ -364,125 +380,194 @@
 @endpush
 
 @section('content')
-    <section class="rank-section">
-        <div class="container">
-            <div class="rank-tabs">
-                <button class="rank-tab-btn active">Player</button>
-                <button class="rank-tab-btn">Level</button>
-                <button class="rank-tab-btn">Couple</button>
-                <button class="rank-tab-btn">Guild</button>
-                <button class="rank-tab-btn">Online</button>
-                <button class="rank-tab-btn">Fame</button>
-                <button class="rank-tab-btn">Power</button>
-                <button class="rank-tab-btn">Cegel</button>
-            </div>
+    <section>
 
-            <!-- Table Container -->
-            <div class="rank-table-container">
-                <!-- Table Header -->
-                <div class="rank-table-header">
-                    <div class="rank-th rank-col-num">#</div>
-                    <div class="rank-th rank-col-name">Char Name</div>
-                    <div class="rank-th rank-col-job">Job</div>
-                    <div class="rank-th rank-col-guild">Guild</div>
-                    <div class="rank-th rank-col-kill">Kill Point</div>
-                </div>
-
-                <!-- Data Rows -->
-                <div class="rank-row-data">
-                    <div class="rank-td rank-col-num" data-label="Rank">1</div>
-                    <div class="rank-td rank-col-name" data-label="Character">Capeskin</div>
-                    <div class="rank-td rank-col-job" data-label="Job">Blade master</div>
-                    <div class="rank-td rank-col-guild" data-label="Guild">Everyone</div>
-                    <div class="rank-td rank-col-kill" data-label="Kill Point">6</div>
-                </div>
-
-                <div class="rank-row-data">
-                    <div class="rank-td rank-col-num" data-label="Rank">2</div>
-                    <div class="rank-td rank-col-name" data-label="Character">Toge</div>
-                    <div class="rank-td rank-col-job" data-label="Job">Renegade</div>
-                    <div class="rank-td rank-col-guild" data-label="Guild">Underware</div>
-                    <div class="rank-td rank-col-kill" data-label="Kill Point">31</div>
-                </div>
-
-                <div class="rank-row-data">
-                    <div class="rank-td rank-col-num" data-label="Rank">3</div>
-                    <div class="rank-td rank-col-name" data-label="Character">Y</div>
-                    <div class="rank-td rank-col-job" data-label="Job">Renegade</div>
-                    <div class="rank-td rank-col-guild" data-label="Guild">Everyone</div>
-                    <div class="rank-td rank-col-kill" data-label="Kill Point">17</div>
-                </div>
-
-                <div class="rank-row-data">
-                    <div class="rank-td rank-col-num" data-label="Rank">4</div>
-                    <div class="rank-td rank-col-name" data-label="Character">Anae</div>
-                    <div class="rank-td rank-col-job" data-label="Job">Renegade</div>
-                    <div class="rank-td rank-col-guild" data-label="Guild">Everyone</div>
-                    <div class="rank-td rank-col-kill" data-label="Kill Point">11</div>
-                </div>
-
-                <div class="rank-row-data">
-                    <div class="rank-td rank-col-num" data-label="Rank">5</div>
-                    <div class="rank-td rank-col-name" data-label="Character">Cupektong</div>
-                    <div class="rank-td rank-col-job" data-label="Job">Renegade</div>
-                    <div class="rank-td rank-col-guild" data-label="Guild">Underware</div>
-                    <div class="rank-td rank-col-kill" data-label="Kill Point">11</div>
-                </div>
-            </div>
-
-            <!-- See More Button -->
-            <div class="text-end mt-4">
-                <button class="rank-see-more">See More</button>
-            </div>
+        <!-- Tabs -->
+        <div class="rank-tabs">
+            <button class="rank-tab-btn {{ $type === 'player' ? 'active' : '' }}" data-type="player">Player</button>
+            <button class="rank-tab-btn {{ $type === 'level' ? 'active' : '' }}" data-type="level">Level</button>
+            <button class="rank-tab-btn {{ $type === 'couple' ? 'active' : '' }}" data-type="couple">Couple</button>
+            <button class="rank-tab-btn {{ $type === 'guild' ? 'active' : '' }}" data-type="guild">Guild</button>
+            <button class="rank-tab-btn {{ $type === 'online' ? 'active' : '' }}" data-type="online">Online</button>
+            <button class="rank-tab-btn {{ $type === 'fame' ? 'active' : '' }}" data-type="fame">Fame</button>
+            <button class="rank-tab-btn {{ $type === 'power' ? 'active' : '' }}" data-type="power">Power</button>
+            <button class="rank-tab-btn {{ $type === 'cegel' ? 'active' : '' }}" data-type="cegel">Cegel</button>
         </div>
+
+        <!-- Table -->
+        <div class="rank-table-wrapper">
+            @if ($rankings->count() > 0)
+                <table class="table rank-table">
+                    <thead>
+                        <tr>
+                            <th class="rank-col-num">Rank</th>
+
+                            @switch($type)
+                                @case('player')
+                                    <th class="rank-col-name">Character Name</th>
+                                    <th class="rank-col-job">Job</th>
+                                    <th class="rank-col-guild">Guild</th>
+                                    <th class="rank-col-kill">Kill Point</th>
+                                @break
+
+                                @case('level')
+                                    <th class="rank-col-name">Character Name</th>
+                                    <th class="rank-col-job">Job</th>
+                                    <th class="rank-col-level">Level</th>
+                                    <th class="rank-col-guild">Guild</th>
+                                @break
+
+                                @case('couple')
+                                    <th class="rank-col-name">Partner 1</th>
+                                    <th class="rank-col-couple">Partner 2</th>
+                                    <th class="rank-col-level">Love Level</th>
+                                    <th class="rank-col-fame">Love Points</th>
+                                @break
+
+                                @case('guild')
+                                    <th class="rank-col-guild">Guild Name</th>
+                                    <th class="rank-col-name">Leader</th>
+                                    <th class="rank-col-level">Members</th>
+                                    <th class="rank-col-power">Guild Power</th>
+                                @break
+
+                                @case('online')
+                                    <th class="rank-col-name">Character Name</th>
+                                    <th class="rank-col-job">Job</th>
+                                    <th class="rank-col-level">Level</th>
+                                    <th class="rank-col-status">Status</th>
+                                @break
+
+                                @case('fame')
+                                    <th class="rank-col-name">Character Name</th>
+                                    <th class="rank-col-job">Job</th>
+                                    <th class="rank-col-guild">Guild</th>
+                                    <th class="rank-col-fame">Fame Points</th>
+                                @break
+
+                                @case('power')
+                                    <th class="rank-col-name">Character Name</th>
+                                    <th class="rank-col-job">Job</th>
+                                    <th class="rank-col-level">Level</th>
+                                    <th class="rank-col-power">Power</th>
+                                @break
+
+                                @case('cegel')
+                                    <th class="rank-col-name">Character Name</th>
+                                    <th class="rank-col-job">Job</th>
+                                    <th class="rank-col-guild">Guild</th>
+                                    <th class="rank-col-cegel">Total Cegel</th>
+                                @break
+                            @endswitch
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($rankings as $index => $rank)
+                            <tr>
+                                <td class="rank-col-num">
+                                    @if ($rankings->firstItem() + $index <= 3)
+                                        <span class="rank-badge rank-badge-{{ $rankings->firstItem() + $index }}">
+                                            {{ $rankings->firstItem() + $index }}
+                                        </span>
+                                    @else
+                                        {{ $rankings->firstItem() + $index }}
+                                    @endif
+                                </td>
+
+                                @switch($type)
+                                    @case('player')
+                                        <td class="rank-col-name">{{ $rank['character_name'] }}</td>
+                                        <td class="rank-col-job">{{ $rank['job'] }}</td>
+                                        <td class="rank-col-guild">{{ $rank['guild'] ?? '-' }}</td>
+                                        <td class="rank-col-kill">{{ number_format($rank['kill_point']) }}</td>
+                                    @break
+
+                                    @case('level')
+                                        <td class="rank-col-name">{{ $rank['character_name'] }}</td>
+                                        <td class="rank-col-job">{{ $rank['job'] }}</td>
+                                        <td class="rank-col-level">{{ $rank['level'] }}</td>
+                                        <td class="rank-col-guild">{{ $rank['guild'] ?? '-' }}</td>
+                                    @break
+
+                                    @case('couple')
+                                        <td class="rank-col-name">{{ $rank['partner_1'] }}</td>
+                                        <td class="rank-col-couple">{{ $rank['partner_2'] }}</td>
+                                        <td class="rank-col-level">{{ $rank['love_level'] }}</td>
+                                        <td class="rank-col-fame">{{ number_format($rank['love_points']) }}</td>
+                                    @break
+
+                                    @case('guild')
+                                        <td class="rank-col-guild">{{ $rank['guild_name'] }}</td>
+                                        <td class="rank-col-name">{{ $rank['leader'] }}</td>
+                                        <td class="rank-col-level">{{ $rank['members'] }}</td>
+                                        <td class="rank-col-power">{{ number_format($rank['guild_power']) }}</td>
+                                    @break
+
+                                    @case('online')
+                                        <td class="rank-col-name">{{ $rank['character_name'] }}</td>
+                                        <td class="rank-col-job">{{ $rank['job'] }}</td>
+                                        <td class="rank-col-level">{{ $rank['level'] }}</td>
+                                        <td class="rank-col-status">
+                                            <span class="status-badge status-{{ $rank['status'] }}">
+                                                {{ ucfirst($rank['status']) }}
+                                            </span>
+                                        </td>
+                                    @break
+
+                                    @case('fame')
+                                        <td class="rank-col-name">{{ $rank['character_name'] }}</td>
+                                        <td class="rank-col-job">{{ $rank['job'] }}</td>
+                                        <td class="rank-col-guild">{{ $rank['guild'] ?? '-' }}</td>
+                                        <td class="rank-col-fame">{{ number_format($rank['fame_points']) }}</td>
+                                    @break
+
+                                    @case('power')
+                                        <td class="rank-col-name">{{ $rank['character_name'] }}</td>
+                                        <td class="rank-col-job">{{ $rank['job'] }}</td>
+                                        <td class="rank-col-level">{{ $rank['level'] }}</td>
+                                        <td class="rank-col-power">{{ number_format($rank['power']) }}</td>
+                                    @break
+
+                                    @case('cegel')
+                                        <td class="rank-col-name">{{ $rank['character_name'] }}</td>
+                                        <td class="rank-col-job">{{ $rank['job'] }}</td>
+                                        <td class="rank-col-guild">{{ $rank['guild'] ?? '-' }}</td>
+                                        <td class="rank-col-cegel">{{ number_format($rank['cegel']) }}</td>
+                                    @break
+                                @endswitch
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            @else
+                <div class="rank-empty">
+                    <i class="bi bi-inbox"></i>
+                    <p>No ranking data available</p>
+                </div>
+            @endif
+        </div>
+
+        <!-- Pagination -->
+        @if ($rankings->hasPages())
+            <div class="rank-pagination">
+                {{ $rankings->appends(['type' => $type])->links('pagination::bootstrap-5') }}
+            </div>
+        @endif
     </section>
 @endsection
 
 @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const menuButtons = document.querySelectorAll('.account-menu-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
+            const tabButtons = document.querySelectorAll('.rank-tab-btn');
 
-            menuButtons.forEach(button => {
+            tabButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    menuButtons.forEach(btn => btn.classList.remove('active'));
+                    // Get rank type
+                    const rankType = this.getAttribute('data-type');
 
-                    this.classList.add('active');
-
-                    tabContents.forEach(content => content.classList.remove('active'));
-
-                    const tabId = this.getAttribute('data-tab') + '-content';
-                    document.getElementById(tabId).classList.add('active');
-                });
-            });
-
-            const toolTabs = document.querySelectorAll('.tool-tab');
-            const toolContents = document.querySelectorAll('.tool-content');
-
-            toolTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    toolTabs.forEach(t => {
-                        t.style.background = '#e5e7eb';
-                        t.style.color = '#1a1a2e';
-                    });
-
-                    this.style.background = '#3b82f6';
-                    this.style.color = 'white';
-
-                    toolContents.forEach(content => content.style.display = 'none');
-
-                    const toolId = this.getAttribute('data-tool') + '-content';
-                    document.getElementById(toolId).style.display = 'block';
-                });
-            });
-
-            document.querySelectorAll('.tool-content a').forEach(link => {
-                link.addEventListener('mouseenter', function() {
-                    this.style.paddingLeft = '0.5rem';
-                });
-                link.addEventListener('mouseleave', function() {
-                    this.style.paddingLeft = '0';
+                    // Redirect with type parameter
+                    window.location.href = `{{ route('rank.index') }}?type=${rankType}`;
                 });
             });
         });
