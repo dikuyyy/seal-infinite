@@ -249,28 +249,16 @@
     opacity: 0.9;
 }
 
-/* Responsive for Achievement Cards */
-@media (max-width: 991px) {
-    .achievement-card {
-        padding: 2.5rem 1.5rem;
-    }
-
-    .achievement-title {
-        font-size: 1.6rem;
-    }
-
-    .achievement-icon-wrapper {
-        width: 140px;
-        height: 140px;
-    }
-
-    .achievement-icon {
-        width: 100px;
-        height: 100px;
-    }
-}
-
 @media (max-width: 767px) {
+    .calendar-image {
+        border-radius: 16px;
+        margin-bottom: 2rem;
+    }
+
+    .calendar-discord-section .row {
+        gap: 2rem;
+    }
+
     .achievement-card {
         padding: 2rem 1.25rem;
     }
@@ -297,6 +285,342 @@
 
     .achievement-stats {
         font-size: 1rem;
+    }
+
+    .auth-banner-card {
+        padding: 3rem 2rem;
+        margin: 0 1rem;
+    }
+
+    .auth-banner-icon {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 1.5rem;
+    }
+
+    .auth-banner-icon i {
+        font-size: 2.5rem;
+    }
+
+    .auth-banner-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .auth-banner-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .auth-banner-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .auth-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.85rem 2rem;
+    }
+
+    .hero5-logo {
+        width: 180px;
+    }
+
+    .logo-container-hero5 {
+        margin-bottom: 2rem;
+    }
+
+    .register-card {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+
+    .register-title {
+        font-size: 1.5rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .calendar-header {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .calendar-title {
+        font-size: 1.8rem;
+    }
+
+    .calendar-weekday {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+
+    .calendar-day {
+        padding: 0.25rem;
+    }
+
+    .calendar-day-number {
+        font-size: 0.9rem;
+    }
+
+    .calendar-event-indicator {
+        font-size: 0.6rem;
+    }
+
+    .calendar-image {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+            0 0 80px rgba(74, 20, 140, 0.2);
+        transition: all 0.4s ease;
+    }
+
+    .calendar-image:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6),
+            0 0 120px rgba(74, 20, 140, 0.3);
+    }
+
+    .discord-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .discord-logo-wrapper {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 1.5rem;
+    }
+
+    .discord-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .discord-title {
+        font-size: 1.4rem;
+    }
+
+    .discord-description {
+        font-size: 1rem;
+    }
+
+    .discord-join-btn {
+        padding: 0.85rem 2rem;
+        font-size: 1rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .discord-stats {
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .discord-stat-value {
+        font-size: 1.5rem;
+    }
+
+    .discord-stat-label {
+        font-size: 0.8rem;
+    }
+
+    .hero {
+        min-height: 100vh;
+        background-position: center center;
+    }
+
+    .hero-content {
+        padding-top: 8rem !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .display-hero {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+        line-height: 1.15;
+        margin-bottom: 1rem !important;
+    }
+
+    .lead {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem !important;
+        line-height: 1.5;
+    }
+
+    .cta-btn {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.95rem;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Event Section Adjustments */
+    section[style*="margin-top"] {
+        margin-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    .event-left,
+    .event-right {
+        height: 280px;
+    }
+
+    .event-body {
+        padding: 1.25rem;
+    }
+
+    .event-title {
+        font-size: 1.15rem;
+        line-height: 1.3;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .event-meta {
+        font-size: 0.85rem;
+        margin-bottom: 1rem !important;
+    }
+
+    .event-view {
+        padding: 0.4rem 0.85rem;
+        font-size: 0.85rem;
+    }
+
+    /* Stack event cards on mobile */
+    .col-lg-7,
+    .col-lg-5 {
+        margin-bottom: 1rem;
+    }
+
+    .col-lg-5 .event-card:last-child {
+        margin-bottom: 0;
+    }
+
+    .hero-2 {
+        padding-bottom: 3rem;
+        min-height: auto;
+    }
+
+    .hero-2 h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-2 .hero-content > div:nth-child(2) {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .hero-2 .d-flex.gap-4 {
+        flex-direction: column;
+        gap: 2rem !important;
+        align-items: center;
+    }
+
+    .library-card img {
+        max-width: 100%;
+        width: 280px;
+        height: auto;
+    }
+
+    .library-card-title {
+        font-size: 1.1rem;
+        margin-top: 0.75rem;
+    }
+
+    .library-card:hover {
+        transform: translateY(-8px) scale(1.02);
+    }
+
+    .hero-3 {
+        min-height: auto;
+        padding: 3rem 0;
+    }
+
+    .hero-3-content {
+        padding: 3rem 1rem;
+    }
+
+    .stats-glass {
+        padding: 2rem 1.5rem;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .stats-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .stat-sep {
+        display: none;
+    }
+
+    .stat-item {
+        justify-content: center;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .stat-item.right {
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-title {
+        font-size: 0.9rem;
+    }
+
+    .stat-icon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .stats-mascot {
+        width: 70px;
+        top: -26px;
+    }
+
+    .stat-sep {
+        display: none !important;
+    }
+
+    .stat-item {
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .stat-item.right {
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-title {
+        font-size: 0.9rem;
+    }
+
+    .stat-icon {
+        width: 55px;
+        height: 55px;
+    }
+
+    .stats-mascot {
+        width: 75px;
+        top: -28px;
     }
 }
 
@@ -599,7 +923,7 @@
     border-radius: 999px;
     padding: 0.35rem 0.9rem;
     background: rgba(255, 255, 255, 0.08);
-    color: #fff;
+    color: #ffffff;
     font-weight: 600;
     backdrop-filter: blur(4px);
     transition: all 0.3s ease;
@@ -685,220 +1009,13 @@
     }
 }
 
-/* Tablet Styles */
-@media (max-width: 991px) {
-    .hero {
-        min-height: 100vh;
-    }
-
-    .hero-content {
-        padding-top: 8rem !important;
-    }
-
-    .display-hero {
-        font-size: clamp(2rem, 6vw, 3.5rem);
-    }
-
-    .lead {
-        font-size: 1rem;
-    }
-
-    .event-left,
-    .event-right {
-        height: 280px;
-    }
-
-    .event-card {
-        margin-bottom: 1rem;
-    }
-
-    .hero-2 {
-        min-height: auto;
-        padding-bottom: 4rem;
-    }
-
-    .library-card img {
-        max-width: 200px;
-        height: auto;
-    }
-
-    .library-card-title {
-        font-size: 18px;
-    }
-
-    .stats-glass {
-        padding: 2.5rem 2rem;
-    }
-
-    .stats-wrapper {
-        gap: 1.5rem;
-    }
-}
-
-/* Mobile Styles */
-@media (max-width: 767px) {
-    .hero {
-        min-height: 100vh;
-        background-position: center center;
-    }
-
-    .hero-content {
-        padding-top: 8rem !important;
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .display-hero {
-        font-size: clamp(2rem, 8vw, 2.8rem);
-        line-height: 1.15;
-        margin-bottom: 1rem !important;
-    }
-
-    .lead {
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem !important;
-        line-height: 1.5;
-    }
-
-    .cta-btn {
-        padding: 0.85rem 1.5rem;
-        font-size: 0.95rem;
-        width: 100%;
-        justify-content: center;
-    }
-
-    /* Event Section Adjustments */
-    section[style*="margin-top"] {
-        margin-top: 3rem !important;
-        padding-bottom: 3rem !important;
-    }
-
-    .event-left,
-    .event-right {
-        height: 280px;
-    }
-
-    .event-body {
-        padding: 1.25rem;
-    }
-
-    .event-title {
-        font-size: 1.15rem;
-        line-height: 1.3;
-        margin-bottom: 0.5rem !important;
-    }
-
-    .event-meta {
-        font-size: 0.85rem;
-        margin-bottom: 1rem !important;
-    }
-
-    .event-view {
-        padding: 0.4rem 0.85rem;
-        font-size: 0.85rem;
-    }
-
-    /* Stack event cards on mobile */
-    .col-lg-7,
-    .col-lg-5 {
-        margin-bottom: 1rem;
-    }
-
-    .col-lg-5 .event-card:last-child {
-        margin-bottom: 0;
-    }
-
-    .hero-2 {
-        padding-bottom: 3rem;
-        min-height: auto;
-    }
-
-    .hero-2 h1 {
-        font-size: 2rem;
-        text-align: center;
-        margin-bottom: 1.5rem;
-    }
-
-    .hero-2 .hero-content > div:nth-child(2) {
-        font-size: 1rem;
-        text-align: center;
-    }
-
-    .hero-2 .d-flex.gap-4 {
-        flex-direction: column;
-        gap: 2rem !important;
-        align-items: center;
-    }
-
-    .library-card img {
-        max-width: 100%;
-        width: 280px;
-        height: auto;
-    }
-
-    .library-card-title {
-        font-size: 1.1rem;
-        margin-top: 0.75rem;
-    }
-
-    .library-card:hover {
-        transform: translateY(-8px) scale(1.02);
-    }
-
-    .hero-3 {
-        min-height: auto;
-        padding: 3rem 0;
-    }
-
-    .hero-3-content {
-        padding: 3rem 0;
-    }
-
-    .stats-glass {
-        padding: 2rem 1.25rem;
-        width: 95%;
-    }
-
-    .stats-wrapper {
-        grid-template-columns: 1fr;
-        gap: 1.75rem;
-    }
-
-    .stat-sep {
-        display: none !important;
-    }
-
-    .stat-item {
-        justify-content: center;
-        flex-direction: row;
-    }
-
-    .stat-item.right {
-        justify-content: center;
-        flex-direction: row;
-    }
-
-    .stat-value {
-        font-size: 1.5rem;
-    }
-
-    .stat-title {
-        font-size: 0.9rem;
-    }
-
-    .stat-icon {
-        width: 55px;
-        height: 55px;
-    }
-
-    .stats-mascot {
-        width: 75px;
-        top: -28px;
-    }
-}
-
 /* Small Mobile Styles */
 @media (max-width: 480px) {
+    .calendar-image {
+        border-radius: 12px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
     .hero {
         min-height: 100vh;
     }
@@ -968,12 +1085,37 @@
         font-size: 1rem;
     }
 
+    .hero-3 {
+        padding: 2.5rem 0;
+    }
+
+    .hero-3-content {
+        padding: 2rem 0.75rem;
+    }
+
     .stats-glass {
         padding: 1.75rem 1rem;
+        border-radius: 16px;
+    }
+
+    .stats-wrapper {
+        gap: 1.75rem;
+    }
+
+    .stat-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+
+    .stat-item.right {
+        flex-direction: column;
+        text-align: center;
     }
 
     .stat-value {
         font-size: 1.3rem;
+        letter-spacing: -0.01em;
     }
 
     .stat-title {
@@ -986,8 +1128,68 @@
     }
 
     .stats-mascot {
-        width: 65px;
-        top: -24px;
+        width: 60px;
+        top: -22px;
+    }
+
+    .auth-banner-card {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .auth-banner-icon {
+        width: 70px;
+        height: 70px;
+    }
+
+    .auth-banner-icon i {
+        font-size: 2rem;
+    }
+
+    .auth-banner-title {
+        font-size: 1.4rem;
+    }
+
+    .auth-banner-description {
+        font-size: 0.95rem;
+    }
+
+    .auth-btn {
+        padding: 0.75rem 1.75rem;
+        font-size: 1rem;
+    }
+
+    .hero5-logo {
+        width: 150px;
+    }
+
+    .register-card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .register-title {
+        font-size: 1.3rem;
+    }
+
+    .form-input {
+        padding: 0.65rem 0.85rem;
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+
+    .calendar-days {
+        gap: 0.25rem;
+    }
+
+    .calendar-weekdays {
+        gap: 0.25rem;
+    }
+
+    .calendar-day {
+        border-radius: 8px;
     }
 }
 
@@ -1593,6 +1795,14 @@
 
 /* Responsive */
 @media (max-width: 991px) {
+    .calendar-image {
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
     .calendar-discord-section {
         padding: 4rem 0;
     }
@@ -1632,112 +1842,91 @@
         width: 70px;
         height: 70px;
     }
-}
 
-@media (max-width: 767px) {
-    .calendar-header {
-        flex-direction: column;
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        padding-top: 8rem !important;
+    }
+
+    .display-hero {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+    }
+
+    .lead {
+        font-size: 1rem;
+    }
+
+    .event-left,
+    .event-right {
+        height: 280px;
+    }
+
+    .event-card {
+        margin-bottom: 1rem;
+    }
+
+    .hero-2 {
+        min-height: auto;
+        padding-bottom: 4rem;
+    }
+
+    .library-card img {
+        max-width: 200px;
+        height: auto;
+    }
+
+    .library-card-title {
+        font-size: 18px;
+    }
+
+    .stats-glass {
+        padding: 2.5rem 2rem;
+    }
+
+    .stats-wrapper {
         gap: 1.5rem;
     }
 
-    .calendar-title {
-        font-size: 1.8rem;
+    .achievement-card {
+        padding: 2.5rem 1.5rem;
     }
 
-    .calendar-weekday {
-        font-size: 0.75rem;
-        padding: 0.5rem;
+    .achievement-title {
+        font-size: 1.6rem;
     }
 
-    .calendar-day {
-        padding: 0.25rem;
+    .achievement-icon-wrapper {
+        width: 140px;
+        height: 140px;
     }
 
-    .calendar-day-number {
-        font-size: 0.9rem;
-    }
-
-    .calendar-event-indicator {
-        font-size: 0.6rem;
-    }
-
-    .discord-card {
-        padding: 2rem 1.5rem;
-    }
-
-    .discord-logo-wrapper {
+    .achievement-icon {
         width: 100px;
         height: 100px;
-        margin-bottom: 1.5rem;
     }
 
-    .discord-logo {
-        width: 60px;
-        height: 60px;
+    .logo-container-hero5 {
+        position: relative;
+        left: 0;
+        top: 0;
+        text-align: center;
+        margin-bottom: 3rem;
     }
 
-    .discord-title {
-        font-size: 1.4rem;
+    .hero5-logo {
+        width: 220px;
     }
 
-    .discord-description {
-        font-size: 1rem;
-    }
-
-    .discord-join-btn {
-        padding: 0.85rem 2rem;
-        font-size: 1rem;
-        width: 100%;
+    .hero-5 {
         justify-content: center;
     }
 
-    .discord-stats {
-        gap: 2rem;
-        flex-wrap: wrap;
+    .register-card {
+        max-width: 500px;
     }
-
-    .discord-stat-value {
-        font-size: 1.5rem;
-    }
-
-    .discord-stat-label {
-        font-size: 0.8rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .calendar-days {
-        gap: 0.25rem;
-    }
-
-    .calendar-weekdays {
-        gap: 0.25rem;
-    }
-
-    .calendar-day {
-        border-radius: 8px;
-    }
-}
-
-.hero-5 {
-    position: relative;
-    min-height: 100vh;
-    background: url("/images/background/hero-5.jpg") center/cover no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 6rem 0;
-}
-
-.hero-5::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background: linear-gradient(to top, transparent, #1a237e 80%);
-    z-index: 1;
 }
 
 /* Registration Form Styles */
@@ -1869,53 +2058,6 @@
     color: #1a237e;
 }
 
-/* Responsive for Registration Form */
-@media (max-width: 991px) {
-    .hero-5 {
-        justify-content: center;
-    }
-
-    .register-card {
-        max-width: 500px;
-    }
-}
-
-@media (max-width: 767px) {
-    .register-card {
-        padding: 2rem 1.5rem;
-        margin: 0 1rem;
-    }
-
-    .register-title {
-        font-size: 1.5rem;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 1.25rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .register-card {
-        padding: 1.75rem 1.25rem;
-    }
-
-    .register-title {
-        font-size: 1.3rem;
-    }
-
-    .form-input {
-        padding: 0.65rem 0.85rem;
-        font-size: 0.9rem;
-    }
-
-    .submit-btn {
-        padding: 0.8rem;
-        font-size: 1rem;
-    }
-}
-
 .logo-container-hero5 {
     position: absolute;
     top: 8rem;
@@ -1957,32 +2099,233 @@
     }
 }
 
-@media (max-width: 991px) {
-    .logo-container-hero5 {
-        position: relative;
-        left: 0;
-        top: 0;
-        text-align: center;
-        margin-bottom: 3rem;
-    }
+.auth-banner-card {
+    position: relative;
+    background: linear-gradient(
+        145deg,
+        rgba(13, 71, 161, 0.35),
+        rgba(74, 20, 140, 0.35)
+    );
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 28px;
+    padding: 4rem 3rem;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-width: 700px;
+    margin: 0 auto;
+}
 
-    .hero5-logo {
-        width: 220px;
+.auth-banner-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 35px 90px rgba(0, 0, 0, 0.6), 0 0 100px rgba(74, 20, 140, 0.4);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.auth-banner-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 28px;
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0) 50%
+    );
+    pointer-events: none;
+}
+
+.auth-banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+.auth-banner-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    background: linear-gradient(135deg, #4a148c, #1a237e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 35px rgba(74, 20, 140, 0.5),
+        inset 0 -5px 15px rgba(0, 0, 0, 0.3);
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+.auth-banner-icon i {
+    font-size: 3rem;
+    color: #fff;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+@keyframes iconPulse {
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 15px 35px rgba(74, 20, 140, 0.5);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 20px 45px rgba(74, 20, 140, 0.7);
     }
 }
 
-@media (max-width: 767px) {
-    .hero5-logo {
-        width: 180px;
-    }
-
-    .logo-container-hero5 {
-        margin-bottom: 2rem;
-    }
+.auth-banner-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-@media (max-width: 480px) {
-    .hero5-logo {
-        width: 150px;
+.auth-banner-title .highlight {
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: none;
+    filter: drop-shadow(0 2px 8px rgba(251, 191, 36, 0.4));
+}
+
+.auth-banner-description {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+.auth-banner-buttons {
+    display: flex;
+    gap: 1.25rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.auth-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.95rem 2.5rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+}
+
+.auth-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.auth-btn:hover::before {
+    left: 100%;
+}
+
+.auth-btn-login {
+    background: linear-gradient(135deg, #4a148c, #1a237e);
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(74, 20, 140, 0.4);
+}
+
+.auth-btn-login:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(74, 20, 140, 0.6);
+    background: linear-gradient(135deg, #3d1173, #141d68);
+    color: #fff;
+}
+
+.auth-btn-register {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+    backdrop-filter: blur(10px);
+}
+
+.auth-btn-register:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.auth-btn:active {
+    transform: translateY(-1px);
+}
+
+/* Decoration Elements */
+.auth-banner-decoration {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.decoration-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(74, 20, 140, 0.4),
+        transparent 70%
+    );
+    animation: floatCircle 6s ease-in-out infinite;
+}
+
+.circle-1 {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -50px;
+    animation-delay: 0s;
+}
+
+.circle-2 {
+    width: 150px;
+    height: 150px;
+    bottom: -30px;
+    right: -30px;
+    animation-delay: 2s;
+}
+
+.circle-3 {
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    right: 10%;
+    animation-delay: 4s;
+}
+
+@keyframes floatCircle {
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 0.6;
     }
 }
