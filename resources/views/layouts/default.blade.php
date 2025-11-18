@@ -205,7 +205,7 @@
             position: relative;
             min-height: 120vh;
             color: #eef3ff;
-            background: url("/images/background/hero-1.jpg") center/cover no-repeat;
+            background: url("/images/background/hero-1.jpg") top/cover no-repeat fixed;
             z-index: 66;
             padding-bottom: 20rem;
         }

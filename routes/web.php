@@ -36,3 +36,7 @@ Route::get('/rankings', [App\Http\Controllers\RankController::class, 'index'])->
 Route::get('/events/{event}', function ($event) {
     return view('pages.event-detail.index', ['event' => $event]);
 })->name('events');
+
+Route::get('/faq', function () {
+    return view('pages.faq.index');
+})->name('faq');
