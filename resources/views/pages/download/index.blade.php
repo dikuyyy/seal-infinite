@@ -1,43 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.default')
 
 @section('title', 'Seal Infinite - Download')
 
 @push('styles')
     <style>
-        .hero {
-            position: relative;
-            min-height: 120vh;
-            color: #eef3ff;
-            background: url("{{ asset('images/background/hero-1.jpg') }}") center/cover no-repeat;
-            z-index: 66;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 200px;
-            background: linear-gradient(to bottom, transparent, #000);
-            pointer-events: none;
-            z-index: 99;
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(1200px 600px at 25% 40%, rgba(36, 79, 170, .35), transparent 60%),
-                linear-gradient(180deg,
-                    rgba(0, 0, 0, .85) 0%,
-                    rgba(7, 11, 22, .3) 25%,
-                    rgba(7, 11, 22, .25) 50%,
-                    rgba(7, 11, 22, .4) 75%,
-                    rgba(0, 0, 0, .9) 100%);
-            pointer-events: none;
-        }
-
         .download-container {
             position: relative;
             z-index: 100;
@@ -345,71 +311,69 @@
     </style>
 @endpush
 
+@section('hide-title', true)
+
 @section('content')
-    <section class="hero">
-        <div class="container download-container" style="padding-top: 10rem">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-xl-9">
-                    <div class="download-card">
-                        <div class="text-center">
-                            <h1 class="download-title">Download Game</h1>
-                            <p class="download-subtitle">Choose your preferred server to start downloading</p>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+            <div class="download-card">
+                <div class="text-center">
+                    <h1 class="download-title">Download Game</h1>
+                    <p class="download-subtitle">Choose your preferred server to start downloading</p>
+                </div>
+
+                <div class="server-buttons">
+                    <!-- Server 1 -->
+                    <a href="#" class="server-btn server-btn-1" data-server="1">
+                        <span class="server-icon">🚀</span>
+                        <div>
+                            <div>Server 1</div>
+                            <div class="server-status">
+                                <span class="status-dot status-online"></span>
+                                <small>Online - Fast</small>
+                            </div>
                         </div>
+                        <span class="badge-new">NEW</span>
+                    </a>
 
-                        <div class="server-buttons">
-                            <!-- Server 1 -->
-                            <a href="#" class="server-btn server-btn-1" data-server="1">
-                                <span class="server-icon">🚀</span>
-                                <div>
-                                    <div>Server 1</div>
-                                    <div class="server-status">
-                                        <span class="status-dot status-online"></span>
-                                        <small>Online - Fast</small>
-                                    </div>
-                                </div>
-                                <span class="badge-new">NEW</span>
-                            </a>
-
-                            <!-- Server 2 -->
-                            <a href="#" class="server-btn server-btn-2" data-server="2">
-                                <span class="server-icon">⚡</span>
-                                <div>
-                                    <div>Server 2</div>
-                                    <div class="server-status">
-                                        <span class="status-dot status-online"></span>
-                                        <small>Online - Stable</small>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- Server 3 -->
-                            <a href="#" class="server-btn server-btn-3" data-server="3">
-                                <span class="server-icon">💎</span>
-                                <div>
-                                    <div>Server 3</div>
-                                    <div class="server-status">
-                                        <span class="status-dot status-online"></span>
-                                        <small>Online - Premium</small>
-                                    </div>
-                                </div>
-                            </a>
+                    <!-- Server 2 -->
+                    <a href="#" class="server-btn server-btn-2" data-server="2">
+                        <span class="server-icon">⚡</span>
+                        <div>
+                            <div>Server 2</div>
+                            <div class="server-status">
+                                <span class="status-dot status-online"></span>
+                                <small>Online - Stable</small>
+                            </div>
                         </div>
+                    </a>
 
-                        <div class="download-info">
-                            <h5>📋 Download Instructions:</h5>
-                            <ul>
-                                <li>Select any server above to start downloading the game</li>
-                                <li>File size: Approximately 2.5 GB</li>
-                                <li>Recommended: Use download manager for faster downloads</li>
-                                <li>After download completes, extract and run the installer</li>
-                                <li>Make sure you have stable internet connection</li>
-                            </ul>
+                    <!-- Server 3 -->
+                    <a href="#" class="server-btn server-btn-3" data-server="3">
+                        <span class="server-icon">💎</span>
+                        <div>
+                            <div>Server 3</div>
+                            <div class="server-status">
+                                <span class="status-dot status-online"></span>
+                                <small>Online - Premium</small>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                </div>
+
+                <div class="download-info">
+                    <h5>📋 Download Instructions:</h5>
+                    <ul>
+                        <li>Select any server above to start downloading the game</li>
+                        <li>File size: Approximately 2.5 GB</li>
+                        <li>Recommended: Use download manager for faster downloads</li>
+                        <li>After download completes, extract and run the installer</li>
+                        <li>Make sure you have stable internet connection</li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 @endsection
 
 @push('scripts')
