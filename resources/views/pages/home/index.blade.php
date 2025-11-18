@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @endpush
 
-@section('hero', false)
 
 @section('content')
     @include('pages.home.components.hero-event-section')
